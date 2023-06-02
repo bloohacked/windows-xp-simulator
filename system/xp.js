@@ -325,7 +325,7 @@ $.fn.initWindows = function() {
             <li class="startmenuitem" onclick="openApp('themes')">
               <img src="` + xp.startmenu.icons.controlpanel + `"/>
               <div><div>
-                <b>Personalize RebornXP</b>
+                <b>Personalize Windows XP</b>
               </div></div>
             </li>
             <li class="startmenuseparator"></li>
