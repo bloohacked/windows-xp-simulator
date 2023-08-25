@@ -1,3 +1,4 @@
+$('<link/>', {rel: 'stylesheet', id: 'theme'}).appendTo('head');
 function logInUser(user) {
   $('<link/>', {rel: 'stylesheet', id: 'theme'}).appendTo('head');
   configFile = `/Documents and Settings/${user}/config.json`;
