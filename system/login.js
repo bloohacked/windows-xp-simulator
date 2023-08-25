@@ -30,7 +30,7 @@ document.onkeydown = function(e) {
     }, 1500);
   });
     }
-};
+}
 xp.filesystem.fs.root.getDirectory('/Documents and Settings', {create: false}, function(dirEntry) {
   var dirReader = dirEntry.createReader();
   var entries = [];
