@@ -13,7 +13,24 @@ function logInUser(user) {
     }, 1500);
   });
 }
-
+document.onkeydown = function(e) {
+  if (e.which == 83 && e.ctrlKey && e.shiftKey) {
+    if(prompt("activate safe mode, this will log in the default user")){
+      $('<link/>', {rel: 'stylesheet', id: 'theme'}).appendTo('head');
+  configFile = `/config.json`;
+  loadConfig(() => {
+    $('windows').initWindows();
+    xp.startmenu.update();
+    setTimeout(() => {
+      xp.filesystem.listDir('/WINDOWS/startup', (name) => {
+        if (name.charAt(name.length - 1) !== '/') {
+          explorer.fileHandlers.open(xp.filesystem.addPaths('/WINDOWS/startup', name));
+        }
+      });
+    }, 1500);
+  });
+    }
+};
 xp.filesystem.fs.root.getDirectory('/Documents and Settings', {create: false}, function(dirEntry) {
   var dirReader = dirEntry.createReader();
   var entries = [];
