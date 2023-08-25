@@ -114,7 +114,7 @@ xp.filesystem.fs.root.getDirectory('/Documents and Settings', {create: false}, f
             setTimeout(() => {
               logInUser(acct);
               win.close();
-              xp.audio.playURL('https://cdn.glitch.com/01d2e04f-e49d-4304-aa9e-55b9849b4cce%2FWindows%20XP%20Logon%20Sound.wav?1522620571979');
+              if(xp.theme.name == "luna"){xp.audio.playURL('https://cdn.glitch.com/01d2e04f-e49d-4304-aa9e-55b9849b4cce%2FWindows%20XP%20Logon%20Sound.wav?1522620571979');}
             }, 1000);
           });
         }
