@@ -15,7 +15,7 @@ function logInUser(user) {
 }
 document.onkeydown = function(e) {
   if (e.which == 83 && e.ctrlKey && e.shiftKey) {
-    if(prompt("activate safe mode, this will log in the default user")){
+    if(prompt("activate safe mode, this will log in the default user") == "yes"){
       $('<link/>', {rel: 'stylesheet', id: 'theme'}).appendTo('head');
   configFile = `/config.json`;
   loadConfig(() => {
