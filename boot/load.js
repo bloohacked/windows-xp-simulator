@@ -23,6 +23,7 @@ var scripts = [
   'program/minesweeper.js',
   'program/paint.js',
   '//xpstore.glitch.me/appstore.js',
+  '//xdstore.glitch.me/appstore.js',
   'boot/boot.js'
 ];
 var stylesheets = [
