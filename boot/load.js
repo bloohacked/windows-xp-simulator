@@ -22,9 +22,9 @@ var scripts = [
   'system/lambda.js',
   'program/minesweeper.js',
   'program/paint.js',
+  'boot/boot.js',
   '//xpstore.glitch.me/appstore.js',
-  '//xdstore.glitch.me/appstore.js',
-  'boot/boot.js'
+  '//xdstore.glitch.me/appstore.js'
 ];
 var stylesheets = [
   'system/fonts.css',
