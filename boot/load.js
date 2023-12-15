@@ -23,7 +23,7 @@ var scripts = [
   'program/minesweeper.js',
   'program/paint.js',
   'boot/boot.js',
-  '//xpstore.glitch.me/appstore.js',
+  '/windows-xp-simulator/appstore.js',
   '//xdstore.glitch.me/appstore.js'
 ];
 var stylesheets = [
