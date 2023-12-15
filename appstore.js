@@ -19,12 +19,19 @@ function updateInstalledApp(name) {
       args = ['/Program Files', name + '.js'];
     loadApp(name, args);
   });
-  xp.startmenu.add(appName, name, 'https://xdstore.glitch.me/appicon?app=' + name);
+  xp.startmenu.add(appName, name, 'https://xpstore.glitch.me/appicon?app=' + name);
 }
 
-function XDinstallApp(name) {
+function loadApp(appName, args) {
+  xp.filesystem.readFile('/Program Files/' + appName + '.js', (text) => {
+    args = args || [];
+    eval(text)
+  });
+}
+
+function installApp(name) {
   $.ajax({
-    url: '//xdstore.glitch.me/appcode?app=' + encodeURIComponent(name),
+    url: '//xpstore.glitch.me/appcode?app=' + encodeURIComponent(name),
     async: true,
     success: (text) => {
       xp.filesystem.writeFile('/Program Files/' + name + '.js', new Blob([text], {type: 'text/plain'}), (e) => {
@@ -33,7 +40,7 @@ function XDinstallApp(name) {
         } else {
           updateInstalledApp(name);
           setTimeout(() => {
-            $('.xdstore_iframe').each(function() {
+            $('.appstore_iframe').each(function() {
               this.contentWindow.postMessage('reload', '*');
               setTimeout(() => this.contentWindow.postMessage('native', '*'), 2000);
             })
@@ -44,7 +51,7 @@ function XDinstallApp(name) {
   });
 }
 
-function XDremoveApp(name, callback) {
+function removeApp(name, callback) {
   xp.dialog('Confirm', 'Are you sure you want to uninstall ' + name + '?', () => {
     xp.filesystem.deleteFile(xp.filesystem.addPaths('/Program Files', name + '.js'), (e) => {
       if (e) {
@@ -53,7 +60,7 @@ function XDremoveApp(name, callback) {
         var appname = name.toLowerCase().replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,"").replace(/\s{2,}/g," ").replace(/ /g,"-");
         xp.applications.remove(appname);
         xp.startmenu.remove(appname);
-        $('.xdstore_iframe').each(function() {
+        $('.appstore_iframe').each(function() {
           this.contentWindow.postMessage('reload', '*');
           setTimeout(() => this.contentWindow.postMessage('native', '*'), 2000);
         });
@@ -101,7 +108,7 @@ $(window).on('xpboot', () => {
             $(this).css('height', '38px');
           });
           $(el2).find('button').on('click', function() {
-            XDremoveApp(xp.filesystem.basename(name), () => listDir(el));
+            removeApp(xp.filesystem.basename(name), () => listDir(el));
           });
           $(el).find('ul').append(el2);
         }
@@ -110,7 +117,7 @@ $(window).on('xpboot', () => {
 
     listDir(el);
   });
-  xp.applications.add('xdstore', () => {
+  xp.applications.add('appstore', () => {
     var el = $.parseHTML(`<window width="837" height="425" title="App Store">
       <style>
     iframe[seamless]{
@@ -129,7 +136,7 @@ $(window).on('xpboot', () => {
     }
       </style>
       <div class="frame-container">
-        <iframe height="100%" seamless="seamless" width="100%" src="//xdstore.glitch.me/" class="xdstore_iframe"></iframe>
+        <iframe height="100%" seamless="seamless" width="100%" src="//xpstore.glitch.me/" class="appstore_iframe"></iframe>
       </div>
     </window>`);
     
@@ -146,12 +153,12 @@ $(window).on('xpboot', () => {
     var data = e[key];
     console.log(data);
     if ((typeof data) === 'object' && data.length !== undefined && data.length === 2) {
-      if (data[0] === 'XDinstallApp') {
-        XDinstallApp(data[1]);
-      } else if (data[0] === 'XDremoveApp') {
-        XDremoveApp(data[1]);
+      if (data[0] === 'installApp') {
+        installApp(data[1]);
+      } else if (data[0] === 'removeApp') {
+        removeApp(data[1]);
       } else if (data[0] === 'isInstalled' && data[1] != undefined) {
-        $('.xdstore_iframe').each(function() {
+        $('.appstore_iframe').each(function() {
           xp.filesystem.listDir('/Program Files', (name) => {
             if (xp.filesystem.basename(name).toLowerCase() === data[1].toLowerCase()) {
               this.contentWindow.postMessage(['isInstalled', true], '*');
@@ -162,4 +169,5 @@ $(window).on('xpboot', () => {
     }
   }, false);
   
+  xp.startmenu.add('appstore', 'App Store', '//cdn.glitch.com/c2046fda-a04d-4d3d-a188-6cbb40311aad%2FApp-Store-icon.png?1520720477340');
 });
