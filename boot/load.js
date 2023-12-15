@@ -24,7 +24,7 @@ var scripts = [
   'program/paint.js',
   'boot/boot.js',
   '/windows-xp-simulator/appstore.js',
-  '//xdstore.glitch.me/appstore.js'
+  '/windows-xp-simulator/xdstore.js'
 ];
 var stylesheets = [
   'system/fonts.css',
