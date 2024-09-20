@@ -22,11 +22,11 @@ function loadConfig(callback) {
   xp.filesystem.readFile(configFile, (text) => {
     try {
       config = JSON.parse(text);
-      xp.wallpaper.set(config.wallpaper || 'system/themes/XP.jpg');
+      xp.wallpaper.set(config.wallpaper || 'https://nathblade16.github.io/windows-xp-simulator/system/themes/XP.jpg');
       xp.profile = config.profile;
       xp.theme.set(config.theme || 'reborn');
     } catch (e) {
-      xp.wallpaper.set('system/themes/XP.jpg');
+      xp.wallpaper.set('https://nathblade16.github.io/windows-xp-simulator/system/themes/XP.jpg');
       loadingconfig = false;
       saveConfig();
     }
@@ -89,12 +89,12 @@ xp.controlpanel.add('Themes', () => {
 
     // Add your wallpaper thumbnails here using the following format
     const wallpaperThumbnails = [
-      'system/themes/XP.jpg',
-      'system/themes/wallpapers/anniversary.png',
-      'system/themes/wallpapers/3.jpg',
-      'system/themes/wallpapers/4.jpg',
-      'system/themes/wallpapers/5.jpg',
-      'system/themes/wallpapers/6.jpg',
+      'https://nathblade16.github.io/windows-xp-simulator/system/themes/XP.jpg',
+      'https://nathblade16.github.io/windows-xp-simulator/system/themes/wallpapers/anniversary.png',
+      'https://nathblade16.github.io/windows-xp-simulator/system/themes/wallpapers/3.jpg',
+      'https://nathblade16.github.io/windows-xp-simulator/system/themes/wallpapers/4.jpg',
+      'https://nathblade16.github.io/windows-xp-simulator/system/themes/wallpapers/5.jpg',
+      'https://nathblade16.github.io/windows-xp-simulator/system/themes/wallpapers/6.jpg',
     ];
 
     wallpaperThumbnails.forEach(thumbnail => {
@@ -198,12 +198,12 @@ xp.applications.add('themes', () => {
 
     // Add your wallpaper thumbnails here using the following format
     const wallpaperThumbnails = [
-      'system/themes/XP.jpg',
-      'system/themes/wallpapers/anniversary.png',
-      'system/themes/wallpapers/3.jpg',
-      'system/themes/wallpapers/4.jpg',
-      'system/themes/wallpapers/5.jpg',
-      'system/themes/wallpapers/6.jpg',
+      'https://nathblade16.github.io/windows-xp-simulator/system/themes/XP.jpg',
+      'https://nathblade16.github.io/windows-xp-simulator/system/themes/wallpapers/anniversary.png',
+      'https://nathblade16.github.io/windows-xp-simulator/system/themes/wallpapers/3.jpg',
+      'https://nathblade16.github.io/windows-xp-simulator/system/themes/wallpapers/4.jpg',
+      'https://nathblade16.github.io/windows-xp-simulator/system/themes/wallpapers/5.jpg',
+      'https://nathblade16.github.io/windows-xp-simulator/system/themes/wallpapers/6.jpg',
     ];
 
     wallpaperThumbnails.forEach(thumbnail => {
