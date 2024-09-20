@@ -23,7 +23,7 @@
 
 ### App Store
 
-RebornXP includes an app store where users can download and install a variety of applications. The app store currently includes a text editor, calculator, image viewer, and more.
+RebornXP includes an app store where users can download and install a variety of applications. The app store currently includes a text editor, calculator, image viewer, and more.e
 
 ### New Themes
 
