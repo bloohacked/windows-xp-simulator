@@ -2,9 +2,8 @@
 //usage, the apps will be automatically added to the start menu and the applications list upon boot
 //use installApp(string name, string icon url, string code) to install an app
 
-xp.filesystem.createDir("/Program Icons", () => {}); 
-
 $(window).on('xpboot', () => {
+	xp.filesystem.createDir("/Program Icons", () => {}); 
 	refreshApps();
 });
 
