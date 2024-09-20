@@ -23,6 +23,9 @@ function refreshApp(name, iconPath) {
 		loadApp(name, args);
 	});
 	xp.filesystem.readFile(iconPath, function(e) {
+		if(e == " "){
+			return;
+		}
 		xp.startmenu.add(appName, name, e);
 	});
 }
