@@ -38,7 +38,7 @@ Users can create and sign in to their own accounts, which allow them to customiz
 RebornXP uses browser storage to save user settings, preferences, and files. This means that all data is stored locally in the user's browser and is accessible even after the user closes the window or refreshes the page.
 
 ### File Management
-
+mmmm
 RebornXP allows users to upload local files from their host operating system to RebornXP's file system, and vice versa. Users can simply copy files from their host OS and paste them into the RebornXP folder, or download files from RebornXP to their host OS.
 
 <h2 align="center">Planned Features</h2>
