@@ -22,6 +22,13 @@ function updateInstalledApp(name) {
   xp.startmenu.add(appName, name, 'https://xdstore.glitch.me/appicon?app=' + name);
 }
 
+function loadApp(appName, args) {
+  xp.filesystem.readFile('/Program Files/' + appName + '.js', (text) => {
+    args = args || [];
+    eval(text)
+  });
+}
+
 function XDinstallApp(name) {
   $.ajax({
     url: '//xdstore.glitch.me/appcode?app=' + encodeURIComponent(name),
