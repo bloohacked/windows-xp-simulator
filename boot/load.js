@@ -23,6 +23,7 @@ var scripts = [
   'program/minesweeper.js',
   'program/paint.js',
   'boot/boot.js',
+  'system/customAppStoreAPI.js',
   '/windows-xp-simulator/xdstore.js'
 ];
 var stylesheets = [
