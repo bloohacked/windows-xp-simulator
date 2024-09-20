@@ -22,11 +22,11 @@ function loadConfig(callback) {
   xp.filesystem.readFile(configFile, (text) => {
     try {
       config = JSON.parse(text);
-      xp.wallpaper.set(config.wallpaper || 'https://rebornxp.js.org/system/themes/XP.jpg');
+      xp.wallpaper.set(config.wallpaper || 'system/themes/XP.jpg');
       xp.profile = config.profile;
       xp.theme.set(config.theme || 'reborn');
     } catch (e) {
-      xp.wallpaper.set('https://rebornxp.js.org/system/themes/XP.jpg');
+      xp.wallpaper.set('system/themes/XP.jpg');
       loadingconfig = false;
       saveConfig();
     }
