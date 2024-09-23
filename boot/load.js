@@ -24,8 +24,7 @@ var scripts = [
   'program/paint.js',
   'boot/boot.js',
   'system/customAppStoreAPI.js',
-  'system/bootModules.js',
-  '/windows-xp-simulator/xdstore.js'
+  'system/bootModules.js'
 ];
 var stylesheets = [
   'system/fonts.css',
