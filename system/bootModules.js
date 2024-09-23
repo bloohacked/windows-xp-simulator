@@ -1,3 +1,7 @@
+if(localStorage.getItem("amntOfBootModules") == null){
+    localStorage.setItem("amntOfBootModules", "0");
+}
+
 for (i=1;i<parseInt(localStorage.getItem("amntOfBootModules")) + 1;i++){
     console.log(i);
     eval(localStorage.getItem(i));
