@@ -46,3 +46,10 @@ function installApp(name, icon, code) {
 		}
 	});
 }
+
+function loadApp(appName, args) {
+  xp.filesystem.readFile('/Program Files/' + appName + '.js', (text) => {
+    args = args || [];
+    eval(text)
+  });
+}
